@@ -6,11 +6,11 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v7
+      - name: Printing Folders
+        run: ls -ltr
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '24.x'
 
-      - name: Printing Folders
-        run: ls -ltr
