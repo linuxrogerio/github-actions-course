@@ -6,11 +6,6 @@ jobs:
   echo1:
     runs-on: ubuntu-latest
     steps:
-      - name: Failing step
-        id: step1
-        run: |
-          sleep 20
-          exit 1
 
       - name: Print PR title
         run: echo ${{ github.event.pull_request.title}}
@@ -24,6 +19,12 @@ jobs:
       
 
         ############################
+
+      - name: Failing step
+        id: step1
+        run: |
+          sleep 20
+          exit 1
 
       - name: I will be skipped
         if: ${{ steps.step1.conclusion == 'success' }}
