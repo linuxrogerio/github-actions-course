@@ -12,6 +12,19 @@ jobs:
           sleep 20
           exit 1
 
+      - name: Print PR title
+        run: echo ${{ github.event.pull_request.title}}
+
+      - name: Print PR labels
+        run: echo ${{ toJson(github.event.pull_request.labels) }}
+
+      - name: Bug step
+        if: ${{ !cancelled() && contains(github.event.pull_request.title, 'fix') }}
+        run: echo "I am a bug fix"
+      
+
+        ############################
+
       - name: I will be skipped
         if: ${{ steps.step1.conclusion == 'success' }}
         run: echo "I will print if previous steps succeed."
