@@ -27,7 +27,6 @@ jobs:
         id: step1
         run: |
           sleep 20
-          exit 1
 
       - name: I will be skipped
         if: ${{ success() }}
