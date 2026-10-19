@@ -47,4 +47,4 @@ jobs:
 
       - name: Print Outputs
         run: |
-          echo ${{ needs.build.outputs.output1 }}
+          echo "Output 1: ${{ needs.build.outputs.output1 }}"
