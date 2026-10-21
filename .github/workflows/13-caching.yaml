@@ -22,7 +22,7 @@ jobs:
           node-version: 24.x
 
       - name: Install dependencies
-        run: npc ci
+        run: npm ci
 
       - name: Testing
         run: npm run test
