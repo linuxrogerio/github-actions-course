@@ -15,12 +15,25 @@ jobs:
         include:
           - os: ubuntu-latest
             node-version: 18.x
+          - os: ubuntu-latest
+            node-version: 26.x
+            tag: "experimental"
     steps:
       - name: ${{ matrix.os }}-${{ matrix.node-version }}
         uses: actions/setup-node@v6
         with: 
           node-version: ${{ matrix.node-version }}
 
+      - name: Fail if experimental
+        if: matrix.tag == 'experimental'
+        run: exit 1
+
       - name: Perform some tests
-        run: echo "RUnning tests on OS ${{ matrix.os }} and NodeJS ${{ matrix.node-version }}"
+        run: | 
+          echo "RUnning tests on OS ${{ matrix.os }} and NodeJS ${{ matrix.node-version }}"
+          sleep 10
+        
+      - name: Upload test results
+        run: echo "Uploading test results"
+
     
