@@ -51,6 +51,7 @@ jobs:
         - small
         - large
         include:
+          - opacity: 50
           - color: red
             shape: triangle
     steps:
