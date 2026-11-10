@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  echo-staging:
+  deploy-staging:
     runs-on: ubuntu-latest
     environment: staging
     env:
@@ -12,14 +12,23 @@ jobs:
     steps:
       - name: Echo vars
         run: |
-          echo "Env variable ${{ env.my-env-value }}"
-  echo-prod:
+          echo "Deploying to staging"
+
+  e2e-test:
+    runs-on: ubuntu-lastest
+    needs: deploy-staging
+    steps:
+      - name: E2E tests
+        run: echo "Running E2E"
+
+  deploy-prod:
     runs-on: ubuntu-latest
+    needs: e2e-test
     environment: prod
     env:
       my-env-value: ${{ vars.MY_ENV_VALUE || 'default value' }}
     steps:
       - name: Echo vars
         run: |
-          echo "Env variable ${{ env.my-env-value }}"
+          echo "Deploying to prod"
 
