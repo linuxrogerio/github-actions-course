@@ -1,12 +1,12 @@
 name: 17 - 1 - Custom Actions - Composite
 on:
   workflow_dispatch:
-inputs:
-  target-env:
-    type: choice
-    options:
-      - dev
-      - prod
+    inputs:
+      target-env:
+        type: choice
+        options:
+          - dev
+          - prod
 run-name: 17 - 1 - Custom Actions - Composite | env - ${{ inputs.target-env }}
 env:
   working-directory: 17-custom-actions/react-app
