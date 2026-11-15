@@ -19,9 +19,10 @@ jobs:
         working-directory: ${{ env.working-directory }}
     steps:
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
+      
       - name: Setup Node and NPM Dependencies
-        uses: ./.github/actions/setup-node
+        uses: ./.github/actions/conposite-cache-deps
         with:
           node-version: 26.x
           working-directory: ${{ env.working-directory }}
