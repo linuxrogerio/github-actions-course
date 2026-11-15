@@ -20,12 +20,12 @@ jobs:
     steps:
 
       - uses: actions/checkout@v6
-
       - name: Setup Node and NPM Dependencies
         uses: ./.github/actions/setup-node
         with:
           node-version: 26.x
           working-directory: ${{ env.working-directory }}
+      
       - name: Test
         run: npm run test
 
