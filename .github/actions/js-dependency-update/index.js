@@ -11,7 +11,7 @@ async function run() {
   const workingDir   = core.getInput('working-directory');
   // const debug        = core.getBooleanInput('debug');
 
-  core.setSecret(ghToken);
+  // core.setSecret(ghToken);
 
   if (!validateBranchName({ branchName: targetBranch })) {
     core.setFailed('Invalid base-branch name. Branch names should include only characters, numbers, hyphens, underscores, dots and forward slashes.');
