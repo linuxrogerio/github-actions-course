@@ -15,14 +15,14 @@ on:
         type: string
         default: 17-custom-actions/react-app
     
-      # gh-token:
-      #   description: Authentication token with repository access. Must have write access to contents and pull-requests
-      #   required: true
-      #   default: ${{ secrets.GITHUB_TOKEN }}
+      gh-token:
+        description: Authentication token with repository access. Must have write access to contents and pull-requests
+        required: true
+        default: ${{ secrets.GITHUB_TOKEN }}
     
-      # debug:
-      #   description: Whether the output debug messages to the console
-      #   required: false
+      debug:
+        description: Whether the output debug messages to the console
+        required: false
 
 jobs:
   dependency-update:
