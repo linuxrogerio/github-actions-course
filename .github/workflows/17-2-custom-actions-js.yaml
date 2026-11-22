@@ -35,5 +35,5 @@ jobs:
           base-branch: ${{ inputs.base-branch }}
           target-branch: ${{ inputs.target-branch }}
           working-directory: ${{ inputs.working-directory }}
-          gh-token: ${{ secrets.GIHUB_TOKEN }}
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
 
